@@ -36,13 +36,19 @@ public class Client {
 			e.printStackTrace();
 		}
 		sConn = new ServerConnection(this, ss);
-		Thread serverConnection = new Thread(sConn);
-		serverConnection.start();
+		//Thread serverConnection = new Thread(sConn);
+		//serverConnection.start();
 	}
 	public void disconnect(){
 		sConn.close();
 	}
-	public void sendMsg(String message){
-		sConn.sendMsg(message);
+
+	public void sendMsg(String message) {
+		try {
+			sConn.sendMsg(message);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

@@ -1,5 +1,6 @@
 package zpi.mobile.gamepad;
 
+import zpi.mobile.client.Client;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -88,7 +89,9 @@ public class GamepadActivity extends Activity {
 	}
 
 	protected void wyslijKlawisz(String przycisk) {
-		
+		Client client = new Client();
+		client.connect("192.168.137.1", 6666);
+		client.sendMsg(przycisk);
 	}
 
 	@Override
