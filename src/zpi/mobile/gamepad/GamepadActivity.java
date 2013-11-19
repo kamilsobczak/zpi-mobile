@@ -18,6 +18,7 @@ public class GamepadActivity extends Activity {
 
 	Button kolko, krzyzyk, kwadrat, trojkat;
 	ImageView p1, p2, p3, p4, bateria;
+	Client client;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -89,8 +90,6 @@ public class GamepadActivity extends Activity {
 	}
 
 	protected void wyslijKlawisz(String przycisk) {
-		Client client = new Client();
-		client.connect("192.168.137.1", 6666);
 		client.sendMsg(przycisk);
 	}
 
@@ -104,6 +103,9 @@ public class GamepadActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.polacz_z_serwerem:
+
+			client = new Client();
+			client.connect("192.168.137.1", 6666);
 			kolko.setEnabled(true);
 			krzyzyk.setEnabled(true);
 			kwadrat.setEnabled(true);
