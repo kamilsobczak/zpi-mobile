@@ -20,6 +20,8 @@ public class GamepadActivity extends Activity {
 	ImageView p1, p2, p3, p4, bateria;
 	Client client;
 
+	int layout = 0;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -103,7 +105,6 @@ public class GamepadActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.polacz_z_serwerem:
-
 			client = new Client();
 			client.connect("192.168.137.1", 6666);
 			kolko.setEnabled(true);
@@ -111,6 +112,23 @@ public class GamepadActivity extends Activity {
 			kwadrat.setEnabled(true);
 			trojkat.setEnabled(true);
 			return true;
+		case R.id.zmien_layout:
+			switch (layout) {
+			case 0:
+				setContentView(R.layout.activity_gamepad_center);
+				layout = 1;
+				break;
+			case 1:
+				setContentView(R.layout.activity_gamepad_left);
+				layout = 2;
+				break;
+			case 2:
+				setContentView(R.layout.activity_gamepad);
+				layout = 0;
+				break;
+			default:
+				break;
+			}
 		default:
 			return super.onOptionsItemSelected(item);
 		}

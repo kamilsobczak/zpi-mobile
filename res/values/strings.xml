@@ -7,5 +7,6 @@
     <string name="polacz_z_serwerem">Połącz z serwerem</string>
     <string name="autorzy">Autorzy</string>
     <string name="title_activity_gamepad">GamepadActivity</string>
+    <string name="zmien_layout">Zmień układ przycisków</string>
 
 </resources>
