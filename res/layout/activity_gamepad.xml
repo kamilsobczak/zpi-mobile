@@ -1,0 +1,171 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#202020"
+    android:gravity="right"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".GamepadActivity" >
+
+    <ImageView
+        android:id="@+id/bateria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/b0" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" >
+            
+            
+            
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="1"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#ffffff" />
+
+                <ImageView
+                    android:id="@+id/p1"
+                    android:layout_width="20sp"
+                    android:layout_height="20sp"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="1sp"
+                    android:src="@drawable/player_off" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="2"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#ffffff" />
+
+                <ImageView
+                    android:id="@+id/p2"
+                    android:layout_width="20sp"
+                    android:layout_height="20sp"
+                    android:layout_margin="1sp"
+                    android:src="@drawable/player_off" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="3"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#ffffff" />
+
+                <ImageView
+                    android:id="@+id/p3"
+                    android:layout_width="20sp"
+                    android:layout_height="20sp"
+                    android:layout_margin="1sp"
+                    android:src="@drawable/player_off" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="4"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#ffffff" />
+
+                <ImageView
+                    android:id="@+id/p4"
+                    android:layout_width="20sp"
+                    android:layout_height="20sp"
+                    android:layout_margin="1sp"
+                    android:src="@drawable/player_off" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right" >
+
+            <Button
+                android:id="@+id/kolko"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:background="@drawable/przycisk_kolko" />
+
+            <Button
+                android:id="@+id/krzyzyk"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:background="@drawable/przycisk_krzyzyk" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right" >
+
+            <Button
+                android:id="@+id/kwadrat"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:background="@drawable/przycisk_kwadrat" />
+
+            <Button
+                android:id="@+id/trojkat"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:background="@drawable/przycisk_trojkat" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
