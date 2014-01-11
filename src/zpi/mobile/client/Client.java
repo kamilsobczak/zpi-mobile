@@ -1,31 +1,35 @@
 package zpi.mobile.client;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class Client {
 	private boolean quit;
-	
+
 	private ServerConnection sConn;
 	private Socket ss;
-	
-	public Client(){
-		
+
+	public Client() {
+
 		quit = false;
-		
-//		Thread ui = new Thread(new UI(this));
-//		ui.start();		
-//		System.out.println("Client");
-				
+
+		// Thread ui = new Thread(new UI(this));
+		// ui.start();
+		// System.out.println("Client");
+
 	}
-	public void quit(){
+
+	public void quit() {
 		quit = true;
 	}
-	public void connect(String IP, int port){
-		if(quit || port==0 || IP=="")
-			return;
-			
+
+	public String connect(String IP, int port) throws IOException {
+		if (quit || port == 0 || IP == "")
+			return "Błąd połączenia";
+
 		try {
 			ss = new Socket(IP, port);
 		} catch (UnknownHostException e) {
@@ -36,10 +40,14 @@ public class Client {
 			e.printStackTrace();
 		}
 		sConn = new ServerConnection(this, ss);
-		//Thread serverConnection = new Thread(sConn);
-		//serverConnection.start();
+		BufferedReader res = new BufferedReader(new InputStreamReader(
+				ss.getInputStream()));
+		return res.readLine();
+		// Thread serverConnection = new Thread(sConn);
+		// serverConnection.start();
 	}
-	public void disconnect(){
+
+	public void disconnect() {
 		sConn.close();
 	}
 
