@@ -1,5 +1,7 @@
 package zpi.mobile.gamepad;
 
+import java.io.IOException;
+
 import zpi.mobile.client.Client;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -13,6 +15,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class GamepadActivity extends Activity {
 
@@ -50,10 +53,6 @@ public class GamepadActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				wyslijKlawisz("kolko");
-				p1.setImageResource(R.drawable.player_on);
-				p2.setImageResource(R.drawable.player_off);
-				p3.setImageResource(R.drawable.player_off);
-				p4.setImageResource(R.drawable.player_off);
 			}
 		});
 		krzyzyk.setOnClickListener(new OnClickListener() {
@@ -61,10 +60,6 @@ public class GamepadActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				wyslijKlawisz("krzyzyk");
-				p2.setImageResource(R.drawable.player_on);
-				p1.setImageResource(R.drawable.player_off);
-				p3.setImageResource(R.drawable.player_off);
-				p4.setImageResource(R.drawable.player_off);
 			}
 		});
 		kwadrat.setOnClickListener(new OnClickListener() {
@@ -72,10 +67,6 @@ public class GamepadActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				wyslijKlawisz("kwadrat");
-				p3.setImageResource(R.drawable.player_on);
-				p2.setImageResource(R.drawable.player_off);
-				p1.setImageResource(R.drawable.player_off);
-				p4.setImageResource(R.drawable.player_off);
 			}
 		});
 		trojkat.setOnClickListener(new OnClickListener() {
@@ -83,10 +74,6 @@ public class GamepadActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				wyslijKlawisz("trojkat");
-				p4.setImageResource(R.drawable.player_on);
-				p2.setImageResource(R.drawable.player_off);
-				p3.setImageResource(R.drawable.player_off);
-				p1.setImageResource(R.drawable.player_off);
 			}
 		});
 	}
@@ -106,11 +93,40 @@ public class GamepadActivity extends Activity {
 		switch (item.getItemId()) {
 		case R.id.polacz_z_serwerem:
 			client = new Client();
-			client.connect("192.168.137.1", 6666);
-			kolko.setEnabled(true);
-			krzyzyk.setEnabled(true);
-			kwadrat.setEnabled(true);
-			trojkat.setEnabled(true);
+			String id;
+			try {
+				id = client.connect("192.168.0.185", 6666);
+				Toast.makeText(getApplicationContext(), id, Toast.LENGTH_LONG)
+						.show();
+				if (id == "1") {
+					p1.setImageResource(R.drawable.player_on);
+					p2.setImageResource(R.drawable.player_off);
+					p3.setImageResource(R.drawable.player_off);
+					p4.setImageResource(R.drawable.player_off);
+				} else if (id == "2") {
+					p2.setImageResource(R.drawable.player_on);
+					p1.setImageResource(R.drawable.player_off);
+					p3.setImageResource(R.drawable.player_off);
+					p4.setImageResource(R.drawable.player_off);
+				} else if (id == "3") {
+					p3.setImageResource(R.drawable.player_on);
+					p2.setImageResource(R.drawable.player_off);
+					p1.setImageResource(R.drawable.player_off);
+					p4.setImageResource(R.drawable.player_off);
+				} else {
+					p4.setImageResource(R.drawable.player_on);
+					p2.setImageResource(R.drawable.player_off);
+					p3.setImageResource(R.drawable.player_off);
+					p1.setImageResource(R.drawable.player_off);
+				}
+				kolko.setEnabled(true);
+				krzyzyk.setEnabled(true);
+				kwadrat.setEnabled(true);
+				trojkat.setEnabled(true);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			return true;
 		case R.id.zmien_layout:
 			switch (layout) {
